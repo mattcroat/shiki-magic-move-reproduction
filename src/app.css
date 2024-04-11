@@ -4,14 +4,13 @@
 }
 
 body {
-	height: 100svh;
-	display: grid;
-	place-content: center;
+	padding: 2rem;
 	background-color: #1b1e28;
 }
 
 pre {
 	font-size: 2rem;
+	text-align: center;
 }
 
 .shiki-magic-move-container {

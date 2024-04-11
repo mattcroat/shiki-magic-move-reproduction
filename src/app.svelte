@@ -13,13 +13,16 @@
 	let code: string = 'let bool;'
 	let lang: BundledLanguage | SpecialLanguage = 'ts'
 	let theme = 'poimandres'
-	let options: MagicMoveRenderOptions & MagicMoveDifferOptions = { duration: 2000 }
+	let options: MagicMoveRenderOptions & MagicMoveDifferOptions = {
+		duration: 1000,
+		containerStyle: true,
+	}
 	let container: HTMLPreElement
 	let highlighter: HighlighterCore
 	let machine: ReturnType<typeof createMagicMoveMachine>
 	let renderer: MagicMoveRenderer
-	let toggle = false
 	let ready = false
+	let toggle = false
 
 	async function init() {
 		highlighter = await getHighlighter({ themes: ['poimandres'], langs: ['typescript'] })
@@ -54,6 +57,6 @@
 	onMount(init)
 </script>
 
-<svelte:body on:click={toggleAnimation} />
+<svelte:window on:click={toggleAnimation} />
 
 <pre bind:this={container} class="shiki-magic-move-container"></pre>
